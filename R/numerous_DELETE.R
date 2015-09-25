@@ -1,23 +1,22 @@
-#' Issue a GET call to the Numerous API server
+#' Issue a DELETE call to the Numerous API server
 #'
-#' @param path The url path to be appended to the base API url
+#' @param path 
 #'
-#' @return THe result of the GET
-#' @seealso \code{\link{GET}}
+#' @return
 #' @importFrom assertthat assert_that is.scalar is.string
-#' @importFrom httr GET status_code
+#' @importFrom httr DELETE status_code
 #' @export
 #'
 #' @examples
 #' library(numerous)
-#' result <- numerous_get(path="users/self")
-numerous_GET <- function(path)
+#' result <- numerous_DELETE(path = "metrics/536616607175882007")
+numerous_DELETE <- function(path)
 {
     assert_that(is.scalar(path))
     assert_that(is.string(path))
     
     full_url <- paste(NUMEROUS_URL_BASE, path, sep='/')
-    result <- GET(url=full_url, config=get_auth_header(APP_KEY))
+    result <- DELETE(url=full_url, config=get_auth_header(APP_KEY))
     
     if(status_code(result) != 200)
     {

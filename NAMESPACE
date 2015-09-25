@@ -2,8 +2,9 @@
 
 export(get_auth_header)
 export(get_metric)
-export(get_subscription)
+export(get_subscriptions)
 export(get_user)
+export(get_user_subscription)
 export(get_user_subscriptions)
 export(numerous_GET)
 importFrom(assertthat,assert_that)
