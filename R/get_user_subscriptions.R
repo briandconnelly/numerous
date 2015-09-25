@@ -21,5 +21,5 @@ get_user_subscriptions <- function(user_id)
     
     # TODO: handle pagination?
     rval <- content(response)
-    rval
+    rval$subscriptions
 }

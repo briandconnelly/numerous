@@ -21,5 +21,5 @@ get_subscriptions <- function(metric_id)
                                         sep='/'))
     # TODO: handle pagination
     rval <- content(response)
-    rval  
+    rval$subscriptions
 }
