@@ -4,7 +4,7 @@
 #' @param interaction_id The ID of the interaction
 #'
 #' @return A list containing information about the interaction
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom httr content
 #' @export
 #'
@@ -15,9 +15,7 @@
 #' 
 get_interaction <- function(metric_id, interaction_id)
 {
-    assert_that(is.scalar(metric_id))
     assert_that(is.string(metric_id))
-    assert_that(is.scalar(interaction_id))
     assert_that(is.string(interaction_id))
     
     response <- numerous_GET(path=paste("metrics", metric_id, "interactions",

@@ -4,7 +4,7 @@
 #'
 #' @return A HTTP request object that contains the Authorization header
 #' @seealso \code{\link{add_headers}}
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom base64enc base64encode
 #' @importFrom httr add_headers
 #' @export
@@ -15,7 +15,6 @@
 #' 
 get_auth_header <- function(api_key)
 {
-    assert_that(is.scalar(api_key))
     assert_that(is.string(api_key))
     
     auth_str <- paste("Basic", base64encode(charToRaw(paste0(api_key, ':'))))

@@ -5,7 +5,7 @@
 #'
 #' @return A list containing information about the user's permissions for the
 #'  metric
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom httr content
 #' @export
 #'
@@ -15,9 +15,7 @@
 #'                      user_id = "2586911214569254875")
 get_permissions <- function(metric_id, user_id)
 {
-    assert_that(is.scalar(metric_id))
     assert_that(is.string(metric_id))
-    assert_that(is.scalar(user_id))
     assert_that(is.string(user_id))
     
     response <- numerous_GET(path=paste("metrics", metric_id, "permissions",

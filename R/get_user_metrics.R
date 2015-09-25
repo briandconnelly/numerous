@@ -3,7 +3,7 @@
 #' @param user_id The ID of the user to get metrics info for.
 #'
 #' @return A list containing information about the user's metrics
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom httr content
 #' @export
 #'
@@ -13,7 +13,6 @@
 #' 
 get_user_metrics <- function(user_id)
 {
-    assert_that(is.scalar(user_id))
     assert_that(is.string(user_id))
     
     response <- numerous_GET(path=paste("users", user_id, "metrics", sep='/'))

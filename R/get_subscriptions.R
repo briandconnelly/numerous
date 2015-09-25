@@ -4,7 +4,7 @@
 #'
 #' @return A list containing information about each of the subscriptions to that
 #' metric
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom httr content
 #' @export
 #'
@@ -14,7 +14,6 @@
 #' 
 get_subscriptions <- function(metric_id)
 {
-    assert_that(is.scalar(metric_id))
     assert_that(is.string(metric_id))
     
     response <- numerous_GET(path=paste("metrics", metric_id, "subscriptions",

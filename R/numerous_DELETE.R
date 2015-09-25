@@ -3,7 +3,7 @@
 #' @param path The url path to be appended to the base API url
 #'
 #' @return The result of the DELETE request
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom httr DELETE status_code
 #' @export
 #'
@@ -12,7 +12,6 @@
 #' result <- numerous_DELETE(path = "metrics/536616607175882007")
 numerous_DELETE <- function(path)
 {
-    assert_that(is.scalar(path))
     assert_that(is.string(path))
     
     full_url <- paste(NUMEROUS_URL_BASE, path, sep='/')

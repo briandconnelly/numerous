@@ -3,7 +3,7 @@
 #' @param user_id The ID of the user to get subscriptions info for.
 #'
 #' @return A list containing information about the user
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @importFrom httr content
 #' @export
 #'
@@ -13,7 +13,6 @@
 #' 
 get_user_subscriptions <- function(user_id)
 {
-    assert_that(is.scalar(user_id))
     assert_that(is.string(user_id))
     
     response <- numerous_GET(path=paste("users", user_id, "subscriptions",

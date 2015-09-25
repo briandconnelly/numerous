@@ -3,7 +3,7 @@
 #' @param metric_id The ID of the metric
 #' @param event_id The ID of the event
 #'
-#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom assertthat assert_that is.string
 #' @export
 #'
 #' @examples
@@ -12,9 +12,7 @@
 #' 
 delete_event <- function(metric_id, event_id)
 {
-    assert_that(is.scalar(metric_id))
     assert_that(is.string(metric_id))
-    assert_that(is.scalar(event_id))
     assert_that(is.string(event_id))
     
     numerous_DELETE(path=paste("metrics", metric_id, "events", event_id,
