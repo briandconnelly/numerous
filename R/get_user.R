@@ -4,8 +4,8 @@
 #' information about yourself is returned.
 #'
 #' @return A list containing information about the user
-#' @importFrom httr add_headers content GET status_code
-#' @importFrom assertthat assert_that is.scalar
+#' @importFrom assertthat assert_that is.scalar is.string
+#' @importFrom httr content
 #' @export
 #'
 #' @examples
@@ -15,18 +15,11 @@
 get_user <- function(user_id="self")
 {
     assert_that(is.scalar(user_id))
+    assert_that(is.string(user_id))
     
-    # TODO: see if authorization stuff is set
-    response <- GET(url=paste(NUMEROUS_URL_BASE, 'users', user_id, sep='/'),
-                    config=add_headers(Authorization=paste("Basic", authstr)))
-    
-    if(status_code(response) == 200)
-    {
-        rval <- content(response)
-        class(rval) <- c("NumerousUser")
-    }
-    else
-    {
-        stop(sprintf("Server returned code %d", status_code(response)))
-    }
+    response <- numerous_GET(path=paste("users", user_id, sep='/'))
+
+    rval <- content(response)
+    class(rval) <- c("NumerousUser", "list")
+    rval
 }
