@@ -11,3 +11,7 @@ ByteCompile: no
 NeedsCompilation: no
 LazyData: true
 Depends: R (>= 3.2.2)
+Imports: 
+    httr,
+    assertthat,
+    base64enc
