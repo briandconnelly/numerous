@@ -1,6 +1,6 @@
 #' Issue a DELETE call to the Numerous API server
 #'
-#' @param path 
+#' @param path The url path to be appended to the base API url
 #'
 #' @return The result of the DELETE request
 #' @importFrom assertthat assert_that is.scalar is.string
