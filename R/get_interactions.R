@@ -1,0 +1,23 @@
+#' Get a list of a metric's interactions
+#'
+#' @param metric_id The ID of the metric
+#'
+#' @return A list of interactions for the given metric
+#' @importFrom assertthat assert_that is.string
+#' @importFrom httr content
+#' @export
+#'
+#' @examples
+#' library(numerous)
+#' get_interactions(metric_id = "7081126591154125596")
+#' 
+get_interactions <- function(metric_id)
+{
+    assert_that(is.string(metric_id))
+    
+    response <- numerous_GET(path=paste("metrics", metric_id, "interactions",
+                                        sep='/'))
+    
+    rval <- content(response)
+    rval$interactions
+}
