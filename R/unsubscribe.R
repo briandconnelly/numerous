@@ -17,6 +17,6 @@ unsubscribe <- function(metric_id, user_id)
     assert_that(is.string(metric_id))
     assert_that(is.string(user_id))
     
-    numerous_DELETE(path=paste("metrics", metric_id, "subscriptions", user_id,
-                               sep='/'))
+    result <- numerous_DELETE(path=paste("metrics", metric_id, "subscriptions", user_id,
+                                         sep='/'))
 }

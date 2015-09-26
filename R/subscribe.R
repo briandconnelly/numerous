@@ -18,6 +18,7 @@ subscribe <- function(metric_id, user_id, ...)
     other_args <- list(...)
     assert_that(is.string(metric_id))
     assert_that(is.string(user_id))
+    #assert_that(not_empty(other_args))
 
     other_args[["notificationsEnabled"]] <- TRUE
     other_args[["notifyWhenAbove"]] <- 5000

@@ -2,6 +2,7 @@
 #'
 #' @param path The url path to be appended to the base API url
 #' @param body A list containing the data to be sent
+#' @param success_code The HTTP status code for successful responses
 #'
 #' @return The result of the PUT
 #' @seealso \code{\link{PUT}}
