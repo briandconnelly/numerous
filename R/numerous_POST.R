@@ -18,8 +18,8 @@ numerous_POST <- function(path, body)
     assert_that(is.list(body))
     
     full_url <- paste(NUMEROUS_URL_BASE, path, sep='/')
-    result <- POST(url=full_url, config=get_auth_header(APP_KEY), body=body,
-                   encode="json")
+    result <- POST(url=full_url, config=get_auth_header(get_numerous_key()),
+                   body=body, encode="json")
         
     if(status_code(result) != 201)
     {

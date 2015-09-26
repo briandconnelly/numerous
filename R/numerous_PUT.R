@@ -20,7 +20,7 @@ numerous_PUT <- function(path, body, success_code=200)
     assert_that(is.list(body))
 
     result <- PUT(url=paste(NUMEROUS_URL_BASE, path, sep='/'),
-                  config=get_auth_header(APP_KEY),
+                  config=get_auth_header(get_numerous_key()),
                   body=body,
                   encode="json")
   

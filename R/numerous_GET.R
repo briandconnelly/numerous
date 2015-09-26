@@ -17,7 +17,8 @@ numerous_GET <- function(path, query=list())
     assert_that(is.string(path))
     
     full_url <- paste(NUMEROUS_URL_BASE, path, sep='/')
-    result <- GET(url=full_url, config=get_auth_header(APP_KEY), query=query)
+    result <- GET(url=full_url, config=get_auth_header(get_numerous_key()),
+                  query=query)
     
     if(status_code(result) != 200)
     {

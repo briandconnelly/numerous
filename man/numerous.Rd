@@ -2,20 +2,13 @@
 % Please edit documentation in R/numerous-package.R
 \docType{package}
 \name{numerous}
-\alias{NUMEROUS_URL_BASE}
 \alias{numerous}
 \alias{numerous-package}
 \title{Interact with the Numerous API}
-\format{\preformatted{ chr "https://api.numerousapp.com/v2"
-}}
-\usage{
-NUMEROUS_URL_BASE
-}
 \description{
 Interact with the Numerous API
 }
 \author{
 Brian Connelly
 }
-\keyword{datasets}
 

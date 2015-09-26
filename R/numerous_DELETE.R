@@ -16,7 +16,7 @@ numerous_DELETE <- function(path, success_code=204)
     assert_that(is.string(path))
     
     full_url <- paste(NUMEROUS_URL_BASE, path, sep='/')
-    result <- DELETE(url=full_url, config=get_auth_header(APP_KEY))
+    result <- DELETE(url=full_url, config=get_auth_header(get_numerous_key()))
     
     if(status_code(result) != success_code)
     {
