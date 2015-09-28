@@ -10,9 +10,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' get_interactions(metric_id = "7081126591154125596")
-#' 
+#' }
 get_interactions <- function(metric_id, interaction_id=NA, df=FALSE)
 {
     assert_that(is.string(metric_id))

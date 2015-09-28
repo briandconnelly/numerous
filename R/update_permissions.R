@@ -11,11 +11,12 @@
 #'
 #' @examples
 #' library(numerous)
+#' \dontrun{
 #' update_permissions(metric_id = "4754875937013463485",
 #'                    user_id = "2586911214569254875", readMetric = TRUE,
 #'                    updateValue = TRUE, editMetric = FALSE,
 #'                    exitPermissions = FALSE)
-#' 
+#' }
 update_permissions <- function(metric_id, user_id, ...)
 {
     other_args <- list(...)

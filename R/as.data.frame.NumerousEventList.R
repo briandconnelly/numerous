@@ -8,10 +8,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' elist <- get_events(metric_id = "872890734")
 #' edf <- as.data.frame(elist)
-#' 
+#' }
 as.data.frame.NumerousEventList <- function(event_list, ...)
 {
     # TODO better implementation for this

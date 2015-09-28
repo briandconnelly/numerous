@@ -7,10 +7,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' delete_interaction(metric_id = "7081126591154125596",
 #'                    interaction_id = "11198655321361")
-#' 
+#' }
 delete_interaction <- function(metric_id, interaction_id)
 {
     assert_that(is.string(metric_id))

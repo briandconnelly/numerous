@@ -7,9 +7,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' delete_event(metric_id = "872890734", event_id = "817258")
-#' 
+#' }
 delete_event <- function(metric_id, event_id)
 {
     assert_that(is.string(metric_id))

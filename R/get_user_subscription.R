@@ -10,10 +10,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' get_user_subscription(metric_id = "4475989761572721263",
 #'                       user_id = "321654987654321")
-#' 
+#' }
 get_user_subscription <- function(metric_id, user_id)
 {
     assert_that(is.string(metric_id))

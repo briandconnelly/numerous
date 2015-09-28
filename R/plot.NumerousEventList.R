@@ -6,9 +6,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' #TODO
-#' 
+#' }
 plot.NumerousEventList <- function(event_list, ...)
 {
     cat("Plotting event list\n")   

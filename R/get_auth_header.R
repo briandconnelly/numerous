@@ -10,9 +10,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' h <- get_auth_header(api_key = "nmrs_S7ZEna7Pmjg7")
-#' 
+#' }
 get_auth_header <- function(api_key)
 {
     assert_that(is.string(api_key))

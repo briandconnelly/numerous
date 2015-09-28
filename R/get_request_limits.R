@@ -9,9 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' get_request_limits()
-#' 
+#' }
 get_request_limits <- function()
 {
     headers <- headers(numerous_GET(path=paste("users", "self", sep='/')))

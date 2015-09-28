@@ -9,9 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' mymetric <- create_metric(label = "Job Status", kind = "percent", value = 0.2)
-#' 
+#' }
 create_metric <- function(label, ...)
 {
     assert_that(is.string(label))

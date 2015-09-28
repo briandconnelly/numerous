@@ -1,7 +1,7 @@
 #' Issue a DELETE call to the Numerous API server
 #'
 #' @param path The url path to be appended to the base API url
-#' @param success_code The HTTP status code for successful responses
+#' @param success_code The HTTP status code for successful responses (default: 204)
 #'
 #' @return The result of the DELETE request
 #' @importFrom assertthat assert_that is.string
@@ -9,8 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' result <- numerous_DELETE(path = "metrics/536616607175882007")
+#' }
 numerous_DELETE <- function(path, success_code=204)
 {
     assert_that(is.string(path))

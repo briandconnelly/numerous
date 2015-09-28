@@ -2,7 +2,7 @@
 #'
 #' @param path The url path to be appended to the base API url
 #' @param body A list containing the data to be sent
-#' @param success_code The HTTP status code for successful responses
+#' @param success_code The HTTP status code for successful responses (default: 200)
 #'
 #' @return The result of the PUT
 #' @seealso \code{\link{PUT}}
@@ -11,9 +11,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' result <- numerous_PUT(path="users/self", body=list(TODO))
-#' 
+#' }
 numerous_PUT <- function(path, body, success_code=200)
 {
     assert_that(is.string(path))

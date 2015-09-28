@@ -11,9 +11,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' get_events(metric_id = "872890734")
-#' 
+#' }
 get_events <- function(metric_id, event_id=NA, df=FALSE)
 {
     assert_that(is.string(metric_id))

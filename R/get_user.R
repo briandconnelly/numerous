@@ -9,9 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' u <- get_user()
-#' 
+#' }
 get_user <- function(user_id="self")
 {
     assert_that(is.string(user_id))

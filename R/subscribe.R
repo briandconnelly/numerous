@@ -10,9 +10,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' # TODO
-#' 
+#' }
 subscribe <- function(metric_id, user_id, ...)
 {
     other_args <- list(...)

@@ -8,8 +8,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' m <- get_metric(metric_id = "4475989761572721263")
+#' }
 get_metric <- function(metric_id)
 {
     assert_that(is.string(metric_id))

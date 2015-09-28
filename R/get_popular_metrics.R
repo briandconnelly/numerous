@@ -10,10 +10,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
-#' 
 #' popular <- get_popular_metrics()
-#' 
+#' }
 get_popular_metrics <- function(count=10)
 {
     assert_that(is.count(count))

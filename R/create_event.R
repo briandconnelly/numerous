@@ -9,9 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' create_event(metric_id = "817258", value = 5)
-#' 
+#' }
 create_event <- function(metric_id, ...)
 {
     other_args <- list(...)

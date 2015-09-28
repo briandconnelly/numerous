@@ -19,9 +19,10 @@ numerous_env <- new.env()
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' set_numerous_key(key = "nmrs_S7ZEna7Pmjg7")
-#' 
+#' }
 set_numerous_key <- function(key)
 {
     assert_that(is.string(key))

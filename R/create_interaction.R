@@ -12,9 +12,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' create_interaction(metric_id = "TODO", author_id = "TODO", kind = "like")
-#' 
+#' }
 create_interaction <- function(metric_id, author_id, kind, ...)
 {
     other_args <- list(...)

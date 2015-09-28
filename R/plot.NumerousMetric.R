@@ -6,10 +6,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' my_metric <- get_metric(metric_id = "4475989761572721263")
 #' plot(my_metric)
-#' 
+#' }
 plot.NumerousMetric <- function(metric, ...)
 {
     other_args <- list(...)

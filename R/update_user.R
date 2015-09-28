@@ -9,10 +9,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' update_user(user_id = "321654987654321", fullName = "Newman Russ",
 #'             location = "Walla Walla, WA")
-#' 
+#' }
 update_user <- function(user_id, ...)
 {
     other_args <- list(...)

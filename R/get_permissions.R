@@ -10,9 +10,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' p <- get_permissions(metric_id = "4754875937013463485",
 #'                      user_id = "2586911214569254875")
+#' }
 get_permissions <- function(metric_id, user_id)
 {
     assert_that(is.string(metric_id))

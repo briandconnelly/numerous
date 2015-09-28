@@ -9,9 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' update_metric(metric_id = "536616607175882007", label = "My Update Label")
-#' 
+#' }
 update_metric <- function(metric_id, ...)
 {
     other_args <- list(...)

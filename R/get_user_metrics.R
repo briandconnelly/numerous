@@ -8,9 +8,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(numerous)
 #' u <- get_user_metrics(user_id = "321654987654321")
-#' 
+#' }
 get_user_metrics <- function(user_id)
 {
     assert_that(is.string(user_id))
