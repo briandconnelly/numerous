@@ -23,6 +23,31 @@ Keep this number handy, as you'll need it right away.
 Optionally, you can save the key in your environment as `NUMEROUS_API_KEY` (or whatever else you'd like).
 
 
+## Viewing a Metric
+
+TODO
+
+
+## Creating a Metric
+
+TODO
+
+
+## Updating a Metric
+
+TODO
+
+
+## Modifying a Metric
+
+TODO
+
+
+## Plotting a Metric's Values
+
+TODO
+
+
 ## Related Projects
 
 - [Python Implementation](https://github.com/outofmbufs/Nappy) by [Neil Webber](http://www.neilwebber.com/)
