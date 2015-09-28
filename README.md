@@ -23,6 +23,50 @@ Keep this number handy, as you'll need it right away.
 Optionally, you can save the key in your environment as `NUMEROUS_API_KEY` (or whatever else you'd like).
 
 
+## Getting Started
+
+Now that you've installed the numerous package, installed the mobile app, and found your API key, it's time to get started.
+
+Start up R and load the package:
+
+```r
+library(numerous)
+```
+
+Now, we're going to set the API key using the `set_numerous_key` function.
+This must be done before interacting with Numerous.
+
+
+### The Manual Option
+
+The most straightforward way to set your key is to provide it as the `key` argument to `set_numerous_key`:
+
+```r
+set_numerous_key(key = "nmrs_S7ZEna7Pmjg7")
+```
+
+Of course, you'll want to replace **nmrs_S7ZEna7Pmjg7** with your own key.
+
+
+### Setting the Key from Your Environment
+
+You can also use the value of an environment variable to set the key.
+This is done using the `env` argument.
+For example, if you stored your key in the variable `MY_NUMEROUS_KEY`:
+
+```r
+set_numerous_key(env = "MY_NUMEROUS_KEY")
+```
+
+By default, this package uses `NUMEROUS_API_KEY`, so if you've saved your key there, you can just run:
+
+```r
+set_numerous_key()
+```
+
+Now that your key is set, it's time to start working with Numerous.
+
+
 ## Viewing a Metric
 
 TODO
