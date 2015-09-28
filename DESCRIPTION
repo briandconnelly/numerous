@@ -3,11 +3,7 @@ Title: Interact with the Numerous API
 Version: 0.0.0.9000
 Authors@R: person(family="Connelly", given="Brian D.",
                   email="bdc@bconnelly.net", role=c("aut", "cre", "dtc"))
-Description: Numerous is a service for sharing and following numbers such as
-stock prices, temperatures, the number of processes running on a server, or the
-number of times you've visited the gym this week. This package allows you to
-create, modify, and interact with data on numerous quickly and easily from
-within R.
+Description: Numerous is a service for sharing and following numbers such as stock prices, temperatures, the number of processes running on a server, or the number of times you've visited the gym this week. This package allows you to create, modify, and interact with data on numerous quickly and easily from within R.
 License: BSD_2_clause + file LICENSE
 URL: https://github.com/briandconnelly/numerous
 BugReports: https://github.com/briandconnelly/numerous/issues
