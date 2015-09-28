@@ -22,7 +22,7 @@ update_user <- function(user_id, ...)
     assert_that(not_empty(other_args))
     
     response <- numerous_PUT(path=paste("users", user_id, sep='/'),
-                             body=other_args, success_code=200)
+                             body=other_args)
     
     rval <- content(response)
     class(rval) <- c("NumerousUser", "list")

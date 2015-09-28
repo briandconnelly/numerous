@@ -32,8 +32,7 @@ subscribe <- function(metric_id, user_id, ...)
     
     response <- numerous_PUT(path=paste("metrics", metric_id, "subscriptions",
                                         user_id, sep='/'),
-                             body=other_args,
-                             success_code=201)
+                             body=other_args)
 
     rval <- content(response)
     class(rval) <- c("NumerousSubscription", "list")

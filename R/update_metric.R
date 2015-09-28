@@ -22,7 +22,7 @@ update_metric <- function(metric_id, ...)
     
     path <- paste("metrics", metric_id, sep='/')
     response <- numerous_PUT(path=paste("metrics", metric_id, sep='/'),
-                              body=other_args, success_code=200)
+                              body=other_args)
 
     rval <- content(response)
     class(rval) <- c("NumerousMetric", "list")

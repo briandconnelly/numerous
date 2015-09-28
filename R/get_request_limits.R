@@ -16,9 +16,7 @@
 get_request_limits <- function()
 {
     headers <- headers(numerous_GET(path=paste("users", "self", sep='/')))
-    # TODO: turn this into a list with decent names
-    res <- list(MaxRequests=headers[["x-rate-limit-limit"]],
-                RequestsRemaining=headers[["x-rate-limit-remaining"]],
-                TimeRemaining=headers[["x-rate-limit-reset"]])
-    res
+    list(MaxRequests=headers[["x-rate-limit-limit"]],
+         RequestsRemaining=headers[["x-rate-limit-remaining"]],
+         TimeRemaining=headers[["x-rate-limit-reset"]])
 }

@@ -17,7 +17,9 @@ A list containing information about the user
 Get information about a user
 }
 \examples{
+\dontrun{
 library(numerous)
 u <- get_user()
+}
 }
 

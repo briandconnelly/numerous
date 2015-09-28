@@ -1,0 +1,1 @@
+NUMEROUS_URL_BASE <- "https://api.numerousapp.com/v2"
