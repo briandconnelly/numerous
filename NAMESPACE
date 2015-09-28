@@ -3,6 +3,7 @@
 S3method(as.data.frame,NumerousEventList)
 S3method(as.data.frame,NumerousInteractionList)
 S3method(plot,NumerousEventList)
+S3method(plot,NumerousMetric)
 export(create_event)
 export(create_interaction)
 export(create_metric)

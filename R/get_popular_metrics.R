@@ -21,5 +21,6 @@ get_popular_metrics <- function(count=10)
     response <- numerous_GET(path=paste("metrics", "popular", sep='/'),
                              query=list(count=count))
     
-    content(response)
+    rval <- content(response)
+    lapply(rval, function(x) { class(x) <- c("NumerousMetric", "list"); x })
 }

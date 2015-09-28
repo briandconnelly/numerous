@@ -9,7 +9,7 @@
 #'
 #' @examples
 #' library(numerous)
-#' elist <- get_events(metric_id = "TODO")
+#' elist <- get_events(metric_id = "872890734")
 #' edf <- as.data.frame(elist)
 #' 
 as.data.frame.NumerousEventList <- function(event_list, ...)
@@ -20,8 +20,8 @@ as.data.frame.NumerousEventList <- function(event_list, ...)
     {
         df <- rbind(df, as.data.frame(event_list[[i]], stringsAsFactors=FALSE))
     }
-    df$updated <- parse_date_time(df$updated,
-                                  orders="%Y-%m-%d %H:%M:%S", tz="UTC")
+    df$updated <- parse_date_time(df$updated, orders="%Y-%m-%d %H:%M:%S",
+                                  tz="UTC")
     df
 }
 
