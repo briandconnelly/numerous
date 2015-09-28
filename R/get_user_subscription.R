@@ -1,7 +1,8 @@
 #' Get information about a user's subscription to a metric
 #'
 #' @param metric_id The ID of the metric
-#' @param user_id The ID of the user
+#' @param user_id The ID of the user. If one is not provided, the current user's
+#' ID is used.
 #'
 #' @return A list containing information about the user's subscription to that
 #' metric
@@ -15,7 +16,7 @@
 #' get_user_subscription(metric_id = "4475989761572721263",
 #'                       user_id = "321654987654321")
 #' }
-get_user_subscription <- function(metric_id, user_id)
+get_user_subscription <- function(metric_id, user_id=get_numerous_id())
 {
     assert_that(is.string(metric_id))
     assert_that(is.string(user_id))
