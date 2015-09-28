@@ -1,17 +1,16 @@
-#' This environment stores the Numerous API key so that it doesn't have to be
-#' specified in each API call.
-#' @noRd
-numerous_env <- new.env()
-
-#' Manage Numerous API keys
+#' @title Manage Numerous API keys
 #' 
-#' The numerous package stores the user's API key so that it does not have to
+#' @details The numerous package stores the user's API key so that it does not have to
 #' be specified as an argument to all commands. These functions handle working
 #' with saved API keys during a session.
 #'
-#' \code{set_numerous_key} sets the key for the Numerous API
+#' @description \code{set_numerous_key} sets the key for the Numerous API using
+#' either the key supplied with \var{key}. If \var{key} is not specified,
+#' the value stored in the environment variable specified by \var{env} (default:
+#' \env{NUMEROUS_API_KEY}) is used.
 #'
 #' @param key Numerous API key
+#' @param env The environment variable where the API key is stored
 #' 
 #' @note The API key is found in the Settings of the Numerous mobile app
 #'
@@ -23,10 +22,19 @@ numerous_env <- new.env()
 #' library(numerous)
 #' set_numerous_key(key = "nmrs_S7ZEna7Pmjg7")
 #' }
-set_numerous_key <- function(key)
+set_numerous_key <- function(key=NA, env="NUMEROUS_API_KEY")
 {
-    assert_that(is.string(key))
-    assign("API_KEY", key, envir=numerous_env, inherits=FALSE)
+    if(!is.na(key))
+    {
+        assert_that(is.string(key))
+        assign("API_KEY", key, envir=numerous_env, inherits=FALSE)
+    }
+    else
+    {
+        eval <- Sys.getenv(x=env, unset=NA)
+        if(is.na(eval)) stop("Must provide API key")
+        assign("API_KEY", eval, envir=numerous_env, inherits=FALSE)
+    }
 }
 
 
