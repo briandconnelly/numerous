@@ -33,6 +33,11 @@ get_interactions <- function(metric_id, interaction_id=NA, df=FALSE)
         rval <- content(response)$interactions
     }
     
-    class(rval) <- c("NumerousInteractionList", "list")
-    ifelse(df, as.data.frame.NumerousInteractionList(rval), rval)
+    if (df) as.data.frame.NumerousEventList(rval)
+    else
+    {
+        rval <- lapply(rval, function(x) { class(x) <- c("NumerousInteraction", "list"); x })
+        class(rval) <- c("NumerousInteractionList", "list")
+        rval
+    }
 }

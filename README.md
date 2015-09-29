@@ -51,7 +51,8 @@ Of course, you'll want to replace **nmrs_S7ZEna7Pmjg7** with your own key.
 ### Setting the Key from Your Environment
 
 You can also use the value of an environment variable to set the key.
-This is done using the `env` argument.
+This is especially useful if you use Numerous in multiple ways (e.g., Python scripts, shell scripts, etc.).
+To specify where to find your key, use the `env` argument.
 For example, if you stored your key in the variable `MY_NUMEROUS_KEY`:
 
 ```r
@@ -105,5 +106,5 @@ This project is released with a [Contributor Code of Conduct](CONDUCT.md). By pa
 
 ## Disclaimer
 
-This package and its author are in no way affiliated with [Numerous, Inc.](http://numerousapp.com).
+This package and its developer are in no way affiliated with [Numerous, Inc](http://numerousapp.com).
 
