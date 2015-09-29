@@ -1,5 +1,7 @@
 # numerous
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/numerous)](http://cran.r-project.org/package=numerous)
+
 [Numerous](http://numerousapp.com) is a service for sharing and following numbers such as stock prices, temperatures, the number of processes running on a server, or the number of times you've visited the gym this week.
 This package allows you to create, modify, and interact with data on numerous quickly and easily from within R through the [Numerous API](https://developer.numerousapp.com).
 

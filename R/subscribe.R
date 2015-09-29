@@ -2,7 +2,21 @@
 #'
 #' @param metric_id The ID of the metric
 #' @param user_id The ID of the user. If one is not provided, the current user's ID is used.
-#' @param ... Any additional properties for the subscription. See \url{https://developer.numerousapp.com/api}.
+#' @param notifications Whether or not notifications are enabled (default:
+#' \code{TRUE}). Specific events for notifications must be set as additional
+#' arguments (see below).
+#' @param ... Any additional properties for the subscription. These include:
+#' \itemize{
+#'     \item \code{notifyWhenAbove}: Value above which a notification will be
+#'     made
+#'     \item \code{notifyWhenBelow}: Value below which a notification will be
+#'     made
+#'     \item \code{notifyOnPercentChange}: Change in percent above which a
+#'     notification will be made
+#'     \item \code{notifyOnComment}: Whether or not to notify when metric is
+#'     commented on
+#'     \item \code{notifyOnLike}: Whether or not to notify when metric is liked
+#' }
 #'
 #' @return A list containing information about the subscription
 #' @importFrom assertthat assert_that is.string not_empty
@@ -12,23 +26,22 @@
 #' @examples
 #' \dontrun{
 #' library(numerous)
-#' # TODO
+#' subscribe(metric_id = "7081126591154125596", notifications=TRUE)
 #' }
-subscribe <- function(metric_id, user_id=get_numerous_id(), ...)
+subscribe <- function(metric_id, user_id=get_numerous_id(), notifications=TRUE, ...)
 {
     other_args <- list(...)
     assert_that(is.string(metric_id))
     assert_that(is.string(user_id))
-    #assert_that(not_empty(other_args))
+    
+    other_args[['notificationsEnabled']] <- notifications
+    other_args[["notifyWhenAboveSet"]] <- "notifyWhenAbove" %in% names(other_args)
+    other_args[["notifyWhenBelowSet"]] <- "notifyWhenBelow" %in% names(other_args)
+    other_args[["notifyOnPercentChangeSet"]] <- "notifyOnPercentChange" %in% names(other_args)
 
-    other_args[["notificationsEnabled"]] <- TRUE
-    other_args[["notifyWhenAbove"]] <- 5000
-    other_args[["notifyWhenBelow"]] <- 1000
-    other_args[["notifyWhenBelowSet"]] <- TRUE
-    other_args[["notifyOnPercentChange"]] <- 0.1
-    other_args[["notifyOnPercentChangeSet"]] <- TRUE
-    other_args[["notifyOnComment"]] <- FALSE
-    other_args[["notifyOnLike"]] <- FALSE
+    if (!notifications & other_args[["notifyWhenAboveSet"]]) warning("notifyWhenAboveSet enabled, but notifications are disabled.")
+    if (!notifications & other_args[["notifyWhenBelowSet"]]) warning("notifyWhenBelowSet enabled, but notifications are disabled.")
+    if (!notifications & other_args[["notifyOnPercentChangeSet"]]) warning("notifyOnPercentChangeSet enabled, but notifications are disabled.")
     
     response <- numerous_PUT(path=paste("metrics", metric_id, "subscriptions",
                                         user_id, sep='/'),
