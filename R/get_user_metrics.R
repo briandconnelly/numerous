@@ -20,6 +20,6 @@ get_user_metrics <- function(user_id=get_numerous_id())
     response <- numerous_GET(path=paste("users", user_id, "metrics", sep='/'))
     
     # TODO: handle pagination?
-    rval <- content(response)
-    rval$metrics
+    rval <- content(response)$metrics
+    lapply(rval, function(x) { class(x) <- c("NumerousMetric", "list"); x })
 }
