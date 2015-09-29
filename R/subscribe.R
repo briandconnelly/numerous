@@ -1,7 +1,7 @@
 #' Subscribe to a metric
 #'
 #' @param metric_id The ID of the metric
-#' @param user_id The ID of the user
+#' @param user_id The ID of the user. If one is not provided, the current user's ID is used.
 #' @param ... Any additional properties for the subscription. See \url{https://developer.numerousapp.com/api}.
 #'
 #' @return A list containing information about the subscription
@@ -14,7 +14,7 @@
 #' library(numerous)
 #' # TODO
 #' }
-subscribe <- function(metric_id, user_id, ...)
+subscribe <- function(metric_id, user_id=get_numerous_id(), ...)
 {
     other_args <- list(...)
     assert_that(is.string(metric_id))

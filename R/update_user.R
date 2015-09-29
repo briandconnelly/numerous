@@ -1,6 +1,6 @@
 #' Update a user's information
 #'
-#' @param user_id The ID of the user
+#' @param user_id The ID of the user. If one is not provided, the current user's ID is used.
 #' @param ... Additional user parameters. See \url{https://developer.numerousapp.com/api}.
 #'
 #' @return A list containing information about the user
@@ -14,7 +14,7 @@
 #' update_user(user_id = "321654987654321", fullName = "Newman Russ",
 #'             location = "Walla Walla, WA")
 #' }
-update_user <- function(user_id, ...)
+update_user <- function(user_id=get_numerous_id(), ...)
 {
     other_args <- list(...)
     
