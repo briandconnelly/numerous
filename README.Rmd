@@ -30,7 +30,7 @@ devtools::install_github("briandconnelly/numerous")
 Before you can interact with Numerous, you'll need to get your key.
 Launch the mobile application ([iOS](https://itunes.apple.com/us/app/numerous-lifes-most-important/id797642904?mt=8), [Android](https://play.google.com/store/apps/details?id=com.numerousapp)), and go to *Settings* and *Developer Info*.
 
-![]("https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png")
+![Finding your API key](https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png)
 
 In this screenshot, we see that our API key is **nmrs_S7ZEna7Pmjg7**.
 Keep this number handy, as you'll need it right away.

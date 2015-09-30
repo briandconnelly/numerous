@@ -29,7 +29,8 @@ Launch the mobile application
 [Android](https://play.google.com/store/apps/details?id=com.numerousapp)),
 and go to *Settings* and *Developer Info*.
 
-![]("https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png")
+![Finding your API
+key](https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png)
 
 In this screenshot, we see that our API key is **nmrs\_S7ZEna7Pmjg7**.
 Keep this number handy, as you'll need it right away. Optionally, you
