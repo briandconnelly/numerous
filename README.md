@@ -29,7 +29,8 @@ Launch the mobile application
 [Android](https://play.google.com/store/apps/details?id=com.numerousapp)),
 and go to *Settings* and *Developer Info*.
 
-![Finding your API key](screenshot_apikey.png)
+![Finding your API
+key]("https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png")
 
 In this screenshot, we see that our API key is **nmrs\_S7ZEna7Pmjg7**.
 Keep this number handy, as you'll need it right away. Optionally, you
@@ -98,6 +99,25 @@ TODO
 
 Plotting a Metric's Values
 --------------------------
+
+We can easily plot a metric's value over time using R's base graphics.
+Here, we'll get the "Phase of the Moon" metric and plot its values.
+
+    moonphase <- get_metric(metric_id = "5676005772602922464")
+    plot(moonphase)
+
+![](figures/plot1-1.png)
+
+*updated* is the name Numerous uses for the time at which a metric's
+value was updated. Different labels and other properties can be
+specified using the standard graphical parameters. Here, we'll change
+the labels and plot lines instead of points:
+
+    plot(moonphase, type = "l", xlab = "Month", ylab = "Value")
+
+![](figures/plot2-1.png)
+
+### Using ggplot
 
 TODO
 

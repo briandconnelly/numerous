@@ -1,7 +1,12 @@
 ---
-title: "numerous"
+title: "numerous README"
 output: md_document
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(fig.path="figures/")
+```
 
 # numerous
 
@@ -24,7 +29,7 @@ devtools::install_github("briandconnelly/numerous")
 Before you can interact with Numerous, you'll need to get your key.
 Launch the mobile application ([iOS](https://itunes.apple.com/us/app/numerous-lifes-most-important/id797642904?mt=8), [Android](https://play.google.com/store/apps/details?id=com.numerousapp)), and go to *Settings* and *Developer Info*.
 
-![Finding your API key](screenshot_apikey.png)
+![Finding your API key]("https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png")
 
 In this screenshot, we see that our API key is **nmrs_S7ZEna7Pmjg7**.
 Keep this number handy, as you'll need it right away.
@@ -49,7 +54,7 @@ This must be done before interacting with Numerous.
 
 The most straightforward way to set your key is to provide it as the `key` argument to `set_numerous_key`:
 
-```{r}
+```{r,eval=FALSE}
 set_numerous_key(key = "nmrs_S7ZEna7Pmjg7")
 ```
 
@@ -98,6 +103,26 @@ TODO
 
 ## Plotting a Metric's Values
 
+We can easily plot a metric's value over time using R's base graphics. Here,
+we'll get the "Phase of the Moon" metric and plot its values.
+
+```{r plot1}
+moonphase <- get_metric(metric_id = "5676005772602922464")
+plot(moonphase)
+```
+
+*updated* is the name Numerous uses for the time at which a metric's value was
+updated. Different labels and other properties can be specified using the
+standard graphical parameters. Here, we'll change the labels and plot lines 
+instead of points:
+
+```{r plot2}
+plot(moonphase, type = "l", xlab = "Month", ylab = "Value")
+```
+
+
+### Using ggplot
+
 TODO
 
 
@@ -115,4 +140,3 @@ This project is released with a [Contributor Code of Conduct](CONDUCT.md). By pa
 ## Disclaimer
 
 This package and its developer are in no way affiliated with [Numerous, Inc](http://numerousapp.com).
-
