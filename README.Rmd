@@ -24,12 +24,13 @@ This package is not quite ready to be available on [CRAN](http://cran.r-project.
 devtools::install_github("briandconnelly/numerous")
 ```
 
+
 ## First: Getting Your API key
 
 Before you can interact with Numerous, you'll need to get your key.
 Launch the mobile application ([iOS](https://itunes.apple.com/us/app/numerous-lifes-most-important/id797642904?mt=8), [Android](https://play.google.com/store/apps/details?id=com.numerousapp)), and go to *Settings* and *Developer Info*.
 
-![Finding your API key]("https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png")
+![]("https://raw.githubusercontent.com/briandconnelly/numerous/master/figures/screenshot_apikey.png")
 
 In this screenshot, we see that our API key is **nmrs_S7ZEna7Pmjg7**.
 Keep this number handy, as you'll need it right away.
@@ -106,17 +107,16 @@ TODO
 We can easily plot a metric's value over time using R's base graphics. Here,
 we'll get the "Phase of the Moon" metric and plot its values.
 
-```{r plot1}
+```{r Basic plot}
 moonphase <- get_metric(metric_id = "5676005772602922464")
 plot(moonphase)
 ```
 
-*updated* is the name Numerous uses for the time at which a metric's value was
-updated. Different labels and other properties can be specified using the
+Different labels and other properties can be specified using the
 standard graphical parameters. Here, we'll change the labels and plot lines 
 instead of points:
 
-```{r plot2}
+```{r Plot with updated labels}
 plot(moonphase, type = "l", xlab = "Month", ylab = "Value")
 ```
 
