@@ -101,7 +101,9 @@ Plotting a Metric's Values
 --------------------------
 
 We can easily plot a metric's value over time using R's base graphics.
-Here, we'll get the "Phase of the Moon" metric and plot its values.
+Here, we'll get the "[Phase of the
+Moon](http://n.numerousapp.com/m/174g84eoxlja8)" metric and plot its
+values.
 
     moonphase <- get_metric(metric_id = "5676005772602922464")
     plot(moonphase)
@@ -118,7 +120,21 @@ lines instead of points:
 
 ### Using ggplot
 
-TODO
+Using
+[ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) is
+also easy. We'll first get a data frame containing a metric's values by
+using the `df` option to `get_events` and then create a plot using that
+data frame.
+
+    library(ggplot2)
+    library(scales)
+
+    moon_events <- get_events(metric_id = moonphase$id, df = TRUE)
+    ggplot(data = moon_events, aes(x=updated, y=value)) +
+        geom_line() +
+        scale_x_datetime(breaks = date_breaks("1 month"), minor_breaks = date_breaks("1 week"))
+
+![](figures/Plotting%20with%20ggplot-1.png)
 
 Related Projects
 ----------------
