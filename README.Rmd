@@ -20,7 +20,7 @@ This package allows you to create, modify, and interact with data on numerous qu
 
 This package is not quite ready to be available on [CRAN](http://cran.r-project.org), but you can use [devtools](http://cran.r-project.org/web/packages/devtools/index.html) to install the current development version:
 
-```{r,eval=FALSE}
+```{r Installing with devtools, eval=FALSE}
 devtools::install_github("briandconnelly/numerous")
 ```
 
@@ -43,7 +43,7 @@ Now that you've installed the numerous package, installed the mobile app, and fo
 
 Start up R and load the package:
 
-```{r}
+```{r Loading the package}
 library(numerous)
 ```
 
@@ -55,7 +55,7 @@ This must be done before interacting with Numerous.
 
 The most straightforward way to set your key is to provide it as the `key` argument to `set_numerous_key`:
 
-```{r,eval=FALSE}
+```{r Setting your API key v1, eval=FALSE}
 set_numerous_key(key = "nmrs_S7ZEna7Pmjg7")
 ```
 
@@ -69,13 +69,13 @@ This is especially useful if you use Numerous in multiple ways (e.g., Python scr
 To specify where to find your key, use the `env` argument.
 For example, if you stored your key in the variable `MY_NUMEROUS_KEY`:
 
-```{r,eval=FALSE}
+```{r Setting your API key v2, eval=FALSE}
 set_numerous_key(env = "MY_NUMEROUS_KEY")
 ```
 
 By default, this package uses `NUMEROUS_API_KEY`, so if you've saved your key there, you can just run:
 
-```{r}
+```{r Setting your API key v3}
 set_numerous_key()
 ```
 
@@ -84,22 +84,70 @@ Now that your key is set, it's time to start working with Numerous.
 
 ## Viewing a Metric
 
-TODO
+We can get information about a metric using the `get_metric` function and specifying that
+metric's ID. If you don't know any metrics, we can get a list of the most popular ones
+using `get_popular_metrics`. Here, we'll use the `count` argument to get the most popular metric:
+
+```{r Getting the Most Popular Metric}
+pop_metric <- get_popular_metrics(count = 1)
+```
+
+We can now get some information about this metric by looking at its values. For example,
+we can get the metric's *label* and its current *value*:
+
+```{r Metric 2roperties 1}
+pop_metric[[1]]$label
+pop_metric[[1]]$value
+```
+
+So this metric is called *Phase of the Moon*, and its current value is 0.36.
+
+If you'd like to see the current phase of the moon any time you want on your mobile device, you can subscribe to it:
+
+```{r Subscribing}
+subscribe(metric_id = pop_metric[[1]]$id)
+```
 
 
 ## Creating a Metric
 
-TODO
+We're really here to interact with our own metrics. Let's create a new one
+called "Fun-O-Meter" that stores a value as a percent. Since we're just getting
+started, we'll set the initial value to 0.33.
+
+```{r Creating a metric}
+funometer <- create_metric(label = "Fun-O-Meter", kind = "percent", value = 0.33)
+```
+
+Our new Fun-O-Meter metric is now ready to go. If you take a look at `funometer`,
+you'll see it contains all the basic information.
+
+```{r Looking at our new metric}
+funometer
+```
 
 
-## Updating a Metric
+## Updating a Metric's Value
 
-TODO
+In Numerous speak, an *event* updates the value of a metric. Let's first set the
+value of our Fun-O-Meter to a "meh" 0.5:
+
+```{r Updating a metric Part 1, eval = FALSE}
+create_event(metric_id = funometer$id, value = 0.5)
+```
+
+Events can also increment a value by a given amount. Because we're so excited about
+this, we're going to update the Fun-O-Meter to the "not bad" territory by adding
+0.1:
+
+```{r Updating a metric Part 2, eval = FALSE}
+create_event(metric_id = funometer$id, value = 0.1, add=TRUE)
+```
 
 
-## Modifying a Metric
+## Setting Notifications
 
-TODO
+TODO - use update_subscription() to get notifications whenever fun-o-meter goes above 90%
 
 
 ## Plotting a Metric's Values
@@ -121,9 +169,9 @@ plot(moonphase, type = "l", xlab = "Month", ylab = "Value")
 ```
 
 
-### Using ggplot
+### Plotting with ggplot
 
-Using [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) is also
+Creating plots with [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) is also
 easy. We'll first get a data frame containing a metric's values by using the `df`
 option to `get_events` and then create a plot using that data frame.
 
@@ -136,8 +184,6 @@ ggplot(data = moon_events, aes(x=updated, y=value)) +
     geom_line() +
     scale_x_datetime(breaks = date_breaks("1 month"), minor_breaks = date_breaks("1 week"))
 ```
-
-
 
 
 ## Related Projects

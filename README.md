@@ -80,22 +80,170 @@ Now that your key is set, it's time to start working with Numerous.
 Viewing a Metric
 ----------------
 
-TODO
+We can get information about a metric using the `get_metric` function
+and specifying that metric's ID. If you don't know any metrics, we can
+get a list of the most popular ones using `get_popular_metrics`. Here,
+we'll use the `count` argument to get the most popular metric:
+
+    pop_metric <- get_popular_metrics(count = 1)
+
+We can now get some information about this metric by looking at its
+values. For example, we can get the metric's *label* and its current
+*value*:
+
+    pop_metric[[1]]$label
+
+    ## [1] "Phase of the Moon"
+
+    pop_metric[[1]]$value
+
+    ## [1] 0.36
+
+So this metric is called *Phase of the Moon*, and its current value is
+0.36.
+
+If you'd like to see the current phase of the moon any time you want on
+your mobile device, you can subscribe to it:
+
+    subscribe(metric_id = pop_metric[[1]]$id)
+
+    ## $userId
+    ## [1] "4066136855367984353"
+    ## 
+    ## $metricId
+    ## [1] "5676005772602922464"
+    ## 
+    ## $notificationsEnabled
+    ## [1] TRUE
+    ## 
+    ## $notifyOnAnyChange
+    ## [1] FALSE
+    ## 
+    ## $notifyWhenAbove
+    ## [1] 0
+    ## 
+    ## $notifyWhenAboveSet
+    ## [1] FALSE
+    ## 
+    ## $notifyWhenBelow
+    ## [1] 0
+    ## 
+    ## $notifyWhenBelowSet
+    ## [1] FALSE
+    ## 
+    ## $notifyOnPercentChange
+    ## [1] 0
+    ## 
+    ## $notifyOnPercentChangeSet
+    ## [1] FALSE
+    ## 
+    ## $notifyOnComment
+    ## [1] FALSE
+    ## 
+    ## $notifyOnLike
+    ## [1] FALSE
+    ## 
+    ## $notifyOnError
+    ## [1] FALSE
+    ## 
+    ## $notifyOnFollow
+    ## [1] FALSE
+    ## 
+    ## attr(,"class")
+    ## [1] "NumerousSubscription" "list"
 
 Creating a Metric
 -----------------
 
-TODO
+We're really here to interact with our own metrics. Let's create a new
+one called "Fun-O-Meter" that stores a value as a percent. Since we're
+just getting started, we'll set the initial value to 0.33.
 
-Updating a Metric
------------------
+    funometer <- create_metric(label = "Fun-O-Meter", kind = "percent", value = 0.33)
 
-TODO
+Our new Fun-O-Meter metric is now ready to go. If you take a look at
+`funometer`, you'll see it contains all the basic information.
 
-Modifying a Metric
-------------------
+    funometer
 
-TODO
+    ## $id
+    ## [1] "2186003818930933618"
+    ## 
+    ## $ownerId
+    ## [1] "4066136855367984353"
+    ## 
+    ## $isOwnedByChannel
+    ## [1] FALSE
+    ## 
+    ## $updated
+    ## [1] "2015-10-06T22:26:19.961Z"
+    ## 
+    ## $latestEventUpdated
+    ## [1] ""
+    ## 
+    ## $label
+    ## [1] "Fun-O-Meter"
+    ## 
+    ## $description
+    ## [1] ""
+    ## 
+    ## $kind
+    ## [1] "percent"
+    ## 
+    ## $value
+    ## [1] 0.33
+    ## 
+    ## $baseValue
+    ## [1] 0
+    ## 
+    ## $precision
+    ## [1] -1
+    ## 
+    ## $units
+    ## [1] ""
+    ## 
+    ## $unit
+    ## [1] ""
+    ## 
+    ## $private
+    ## [1] FALSE
+    ## 
+    ## $writeable
+    ## [1] FALSE
+    ## 
+    ## $visibility
+    ## [1] "public"
+    ## 
+    ## $subscriberCount
+    ## [1] 1
+    ## 
+    ## $links
+    ## $links$self
+    ## [1] "https://api.numerousapp.com/v2/metrics/2186003818930933618"
+    ## 
+    ## $links$web
+    ## [1] "http://n.numerousapp.com/m/glw9oirxfzoy"
+    ## 
+    ## $links$embed
+    ## [1] "http://n.numerousapp.com/e/glw9oirxfzoy"
+    ## 
+    ## 
+    ## attr(,"class")
+    ## [1] "NumerousMetric" "list"
+
+Updating a Metric's Value
+-------------------------
+
+In Numerous speak, an *event* updates the value of a metric. Let's first
+set the value of our Fun-O-Meter to a "meh" 0.5:
+
+    create_event(metric_id = funometer$id, value = 0.5)
+
+Events can also increment a value by a given amount. Because we're so
+excited about this, we're going to update the Fun-O-Meter to the "not
+bad" territory by adding 0.1:
+
+    create_event(metric_id = funometer$id, value = 0.1, add=TRUE)
 
 Plotting a Metric's Values
 --------------------------
@@ -118,9 +266,9 @@ lines instead of points:
 
 ![](figures/Plot%20with%20updated%20labels-1.png)
 
-### Using ggplot
+### Plotting with ggplot
 
-Using
+Creating plots with
 [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) is
 also easy. We'll first get a data frame containing a metric's values by
 using the `df` option to `get_events` and then create a plot using that

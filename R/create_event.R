@@ -16,7 +16,7 @@
 #' same time.
 #'
 #' @return A list containing information about the event
-#' @importFrom assertthat assert_that is.string not_empty
+#' @importFrom assertthat assert_that is.number is.string is.flag
 #' @importFrom httr content
 #' @export
 #'
@@ -30,8 +30,8 @@ create_event <- function(metric_id, value, add=FALSE, ifchanged=FALSE,
 {
     assert_that(is.string(metric_id))
     assert_that(is.number(value))
-    assert_that(is.logical(add))
-    assert_that(is.logical(ifchanged))
+    assert_that(is.flag(add))
+    assert_that(is.flag(ifchanged))
 
     call_args <- list(value=value)
     if (add) call_args$action <- "ADD"
