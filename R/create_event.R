@@ -6,7 +6,7 @@
 #' (default: FALSE)
 #' @param ifchanged The event will be ignored if the value has not changed. When
 #' the value has not changed, the server will respond with "client error: (409)
-#' Conflict".
+#' Conflict" (default: FALSE).
 #' @param updated Optional: the date and time when the event occurred, if other
 #'     than now. Format is "2014-02-18T20:15:43.123Z". The function 
 #'     \code{\link{format_datetime_numerous}} can create a string in this

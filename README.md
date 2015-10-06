@@ -124,7 +124,7 @@ Our new Fun-O-Meter metric is now ready to go. If you take a look at
     funometer
 
     ## $id
-    ## [1] "2186003818930933618"
+    ## [1] "7940323980985427280"
     ## 
     ## $ownerId
     ## [1] "4066136855367984353"
@@ -133,7 +133,7 @@ Our new Fun-O-Meter metric is now ready to go. If you take a look at
     ## [1] FALSE
     ## 
     ## $updated
-    ## [1] "2015-10-06T22:26:19.961Z"
+    ## [1] "2015-10-06T22:43:13.362Z"
     ## 
     ## $latestEventUpdated
     ## [1] ""
@@ -176,13 +176,13 @@ Our new Fun-O-Meter metric is now ready to go. If you take a look at
     ## 
     ## $links
     ## $links$self
-    ## [1] "https://api.numerousapp.com/v2/metrics/2186003818930933618"
+    ## [1] "https://api.numerousapp.com/v2/metrics/7940323980985427280"
     ## 
     ## $links$web
-    ## [1] "http://n.numerousapp.com/m/glw9oirxfzoy"
+    ## [1] "http://n.numerousapp.com/m/1obrlxrb8w500"
     ## 
     ## $links$embed
-    ## [1] "http://n.numerousapp.com/e/glw9oirxfzoy"
+    ## [1] "http://n.numerousapp.com/e/1obrlxrb8w500"
     ## 
     ## 
     ## attr(,"class")
@@ -243,7 +243,8 @@ data frame.
     moon_events <- get_events(metric_id = moonphase$id, df = TRUE)
     ggplot(data = moon_events, aes(x=updated, y=value)) +
         geom_line() +
-        scale_x_datetime(breaks = date_breaks("1 month"), minor_breaks = date_breaks("1 week"))
+        scale_x_datetime(breaks = date_breaks("1 month"), minor_breaks = date_breaks("1 week")) +
+        labs(title=moonphase$label)
 
 ![](figures/Plotting%20with%20ggplot-1.png)
 
