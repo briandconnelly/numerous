@@ -6,6 +6,8 @@ output: md_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
 knitr::opts_chunk$set(fig.path="figures/")
+library(numerous)
+set_numerous_key()
 ```
 
 # numerous
@@ -43,7 +45,7 @@ Now that you've installed the numerous package, installed the mobile app, and fo
 
 Start up R and load the package:
 
-```{r Loading the package}
+```{r Loading the package, eval=FALSE}
 library(numerous)
 ```
 
@@ -75,7 +77,7 @@ set_numerous_key(env = "MY_NUMEROUS_KEY")
 
 By default, this package uses `NUMEROUS_API_KEY`, so if you've saved your key there, you can just run:
 
-```{r Setting your API key v3}
+```{r Setting your API key v3, eval=FALSE}
 set_numerous_key()
 ```
 
@@ -105,8 +107,10 @@ So this metric is called *Phase of the Moon*, and its current value is 0.36.
 If you'd like to see the current phase of the moon any time you want on your mobile device, you can subscribe to it:
 
 ```{r Subscribing}
-subscribe(metric_id = pop_metric[[1]]$id)
+subinfo <- subscribe(metric_id = pop_metric[[1]]$id)
 ```
+
+`subinfo` now stores information about your subscription.
 
 
 ## Creating a Metric

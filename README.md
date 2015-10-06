@@ -105,52 +105,9 @@ So this metric is called *Phase of the Moon*, and its current value is
 If you'd like to see the current phase of the moon any time you want on
 your mobile device, you can subscribe to it:
 
-    subscribe(metric_id = pop_metric[[1]]$id)
+    subinfo <- subscribe(metric_id = pop_metric[[1]]$id)
 
-    ## $userId
-    ## [1] "4066136855367984353"
-    ## 
-    ## $metricId
-    ## [1] "5676005772602922464"
-    ## 
-    ## $notificationsEnabled
-    ## [1] TRUE
-    ## 
-    ## $notifyOnAnyChange
-    ## [1] FALSE
-    ## 
-    ## $notifyWhenAbove
-    ## [1] 0
-    ## 
-    ## $notifyWhenAboveSet
-    ## [1] FALSE
-    ## 
-    ## $notifyWhenBelow
-    ## [1] 0
-    ## 
-    ## $notifyWhenBelowSet
-    ## [1] FALSE
-    ## 
-    ## $notifyOnPercentChange
-    ## [1] 0
-    ## 
-    ## $notifyOnPercentChangeSet
-    ## [1] FALSE
-    ## 
-    ## $notifyOnComment
-    ## [1] FALSE
-    ## 
-    ## $notifyOnLike
-    ## [1] FALSE
-    ## 
-    ## $notifyOnError
-    ## [1] FALSE
-    ## 
-    ## $notifyOnFollow
-    ## [1] FALSE
-    ## 
-    ## attr(,"class")
-    ## [1] "NumerousSubscription" "list"
+`subinfo` now stores information about your subscription.
 
 Creating a Metric
 -----------------
@@ -244,6 +201,12 @@ excited about this, we're going to update the Fun-O-Meter to the "not
 bad" territory by adding 0.1:
 
     create_event(metric_id = funometer$id, value = 0.1, add=TRUE)
+
+Setting Notifications
+---------------------
+
+TODO - use update\_subscription() to get notifications whenever
+fun-o-meter goes above 90%
 
 Plotting a Metric's Values
 --------------------------
