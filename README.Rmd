@@ -186,7 +186,8 @@ library(scales)
 moon_events <- get_events(metric_id = moonphase$id, df = TRUE)
 ggplot(data = moon_events, aes(x=updated, y=value)) +
     geom_line() +
-    scale_x_datetime(breaks = date_breaks("1 month"), minor_breaks = date_breaks("1 week")) +
+    scale_x_datetime(breaks = date_breaks("1 month"),
+                     minor_breaks = date_breaks("1 week")) +
     labs(title=moonphase$label)
 ```
 

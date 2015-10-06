@@ -14,7 +14,7 @@
 #' update_user(user_id = "321654987654321", fullName = "Newman Russ",
 #'             location = "Walla Walla, WA")
 #' }
-update_user <- function(user_id=get_numerous_id(), ...)
+update_user <- function(user_id=get_numerous_user(), ...)
 {
     other_args <- list(...)
     

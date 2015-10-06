@@ -13,7 +13,7 @@
 #' library(numerous)
 #' u <- get_user_subscriptions(user_id = "321654987654321")
 #' }
-get_user_subscriptions <- function(user_id=get_numerous_id())
+get_user_subscriptions <- function(user_id=get_numerous_user())
 {
     assert_that(is.string(user_id))
     

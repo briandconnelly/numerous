@@ -16,7 +16,7 @@
 #' get_subscription_info(metric_id = "4475989761572721263",
 #'                       user_id = "321654987654321")
 #' }
-get_subscription_info <- function(metric_id, user_id=get_numerous_id())
+get_subscription_info <- function(metric_id, user_id=get_numerous_user())
 {
     assert_that(is.string(metric_id))
     assert_that(is.string(user_id))

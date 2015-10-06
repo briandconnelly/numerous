@@ -32,7 +32,8 @@
 #' library(numerous)
 #' subscribe(metric_id = "7081126591154125596", notifications=TRUE)
 #' }
-subscribe <- function(metric_id, user_id=get_numerous_id(), notifications=TRUE, ...)
+subscribe <- function(metric_id, user_id=get_numerous_user(),
+                      notifications=TRUE, ...)
 {
     other_args <- list(...)
     assert_that(is.string(metric_id))

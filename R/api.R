@@ -13,6 +13,8 @@
 #' @param env The environment variable where the API key is stored
 #' 
 #' @note The API key is found in the Settings of the Numerous mobile app
+#' @note \code{set_numerous_key} will also retrieve and store the ID of the user
+#' associated with the API key.
 #'
 #' @importFrom assertthat assert_that is.string
 #' @export
@@ -35,6 +37,7 @@ set_numerous_key <- function(key=NA, env="NUMEROUS_API_KEY")
         if(is.na(eval)) stop("Must provide API key")
         assign("API_KEY", eval, envir=numerous_env, inherits=FALSE)
     }
+    set_numerous_user(user_id = get_user(user_id = "self")$id)
 }
 
 
@@ -63,3 +66,42 @@ unset_numerous_key <- function()
 #' @export
 numerous_key.isset <- function() exists("API_KEY", key, envir=numerous_env,
                                         inherits=FALSE)
+
+
+#' @description \code{set_numerous_user} sets the Numerous ID of the user
+#' @rdname set_numerous_key
+#' @param user_id The ID of the current user
+#' @importFrom assertthat assert_that is.string
+#' @export
+set_numerous_user <- function(user_id)
+{
+    assert_that(is.string(user_id))
+    assign("USER_ID", user_id, envir=numerous_env, inherits=FALSE)
+}
+
+
+#' @description \code{numerous_user.isset} returns whether or not the user ID has been set
+#' @rdname set_numerous_key                                                       
+#' @export
+numerous_user.isset <- function() exists("USER_ID", key, envir=numerous_env,
+                                         inherits=FALSE)
+
+
+#' @description \code{get_numerous_user} returns user ID that has been saved
+#' @rdname set_numerous_key                                                       
+#' @export
+get_numerous_user <- function()
+{
+    if (!numerous_user.isset()) stop("Numerous user ID has not been set. Use set_numerous_user().")
+    return(get("USER_ID", envir=numerous_env, inherits=FALSE))
+}
+
+
+#' @description \code{unset_numerous_user} clears the saved user ID
+#' @rdname set_numerous_key                                                       
+#' @export
+unset_numerous_user <- function()
+{
+    if (!numerous_user.isset()) stop("Numerous user ID has not been set.")
+    rm("USER_ID", envir=numerous_env, inherits=FALSE)   
+}

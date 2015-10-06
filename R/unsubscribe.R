@@ -13,7 +13,7 @@
 #' unsubscribe(metric_id = "4754875937013463485",
 #'             user_id = "2586911214569254875")
 #' }
-unsubscribe <- function(metric_id, user_id=get_numerous_id())
+unsubscribe <- function(metric_id, user_id=get_numerous_user())
 {
     assert_that(is.string(metric_id))
     assert_that(is.string(user_id))
