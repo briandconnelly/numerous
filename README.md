@@ -1,7 +1,15 @@
 numerous
 ========
 
+[![Project Status: Abandoned - Initial development has started, but
+there has not yet been a stable, usable release; the project has been
+abandoned and the author(s) do not intend on continuing
+development.](http://www.repostatus.org/badges/latest/abandoned.svg)](http://www.repostatus.org/#abandoned)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/numerous)](http://cran.r-project.org/package=numerous)
+
+**Note: Numerous is [shutting
+down](http://blog.numerousapp.com/2016/02/02/numerous-shutting-down-on-may-1.html),
+so this package is no longer being developed.**
 
 [Numerous](http://numerousapp.com) is a service for sharing and
 following numbers such as stock prices, temperatures, the number of
@@ -97,7 +105,7 @@ values. For example, we can get the metric's *label* and its current
 
     pop_metric[[1]]$value
 
-    ## [1] 0.36
+    ## [1] 0.35
 
 So this metric is called *Phase of the Moon*, and its current value is
 0.36.
@@ -124,7 +132,7 @@ Our new Fun-O-Meter metric is now ready to go. If you take a look at
     funometer
 
     ## $id
-    ## [1] "7940323980985427280"
+    ## [1] "3846971252853556510"
     ## 
     ## $ownerId
     ## [1] "4066136855367984353"
@@ -133,7 +141,7 @@ Our new Fun-O-Meter metric is now ready to go. If you take a look at
     ## [1] FALSE
     ## 
     ## $updated
-    ## [1] "2015-10-06T22:43:13.362Z"
+    ## [1] "2016-04-01T04:10:54.782Z"
     ## 
     ## $latestEventUpdated
     ## [1] ""
@@ -176,13 +184,13 @@ Our new Fun-O-Meter metric is now ready to go. If you take a look at
     ## 
     ## $links
     ## $links$self
-    ## [1] "https://api.numerousapp.com/v2/metrics/7940323980985427280"
+    ## [1] "https://api.numerousapp.com/v2/metrics/3846971252853556510"
     ## 
     ## $links$web
-    ## [1] "http://n.numerousapp.com/m/1obrlxrb8w500"
+    ## [1] "https://nmrs.co/m/t86thw26oj6m"
     ## 
     ## $links$embed
-    ## [1] "http://n.numerousapp.com/e/1obrlxrb8w500"
+    ## [1] "https://nmrs.co/e/t86thw26oj6m"
     ## 
     ## 
     ## attr(,"class")
@@ -243,7 +251,8 @@ data frame.
     moon_events <- get_events(metric_id = moonphase$id, df = TRUE)
     ggplot(data = moon_events, aes(x=updated, y=value)) +
         geom_line() +
-        scale_x_datetime(breaks = date_breaks("1 month"), minor_breaks = date_breaks("1 week")) +
+        scale_x_datetime(breaks = date_breaks("1 month"),
+                         minor_breaks = date_breaks("1 week")) +
         labs(title=moonphase$label)
 
 ![](figures/Plotting%20with%20ggplot-1.png)

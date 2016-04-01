@@ -12,7 +12,10 @@ set_numerous_key()
 
 # numerous
 
+[![Project Status: Abandoned - Initial development has started, but there has not yet been a stable, usable release; the project has been abandoned and the author(s) do not intend on continuing development.](http://www.repostatus.org/badges/latest/abandoned.svg)](http://www.repostatus.org/#abandoned)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/numerous)](http://cran.r-project.org/package=numerous)
+
+**Note: Numerous is [shutting down](http://blog.numerousapp.com/2016/02/02/numerous-shutting-down-on-may-1.html), so this package is no longer being developed.**
 
 [Numerous](http://numerousapp.com) is a service for sharing and following numbers such as stock prices, temperatures, the number of processes running on a server, or the number of times you've visited the gym this week.
 This package allows you to create, modify, and interact with data on numerous quickly and easily from within R through the [Numerous API](https://developer.numerousapp.com).

@@ -42,10 +42,21 @@ create_metric <- function(label, ...)
                                                  "private"))
     }
     
+    if ("graphingOptions" %in% names(other_args))
+    {
+        assert_that(is.list(other_args$graphingOptions))
+        assert_that(other_args$graphingOptions$defaultGraphType %in% c("bar", "doubleBar", "financialBar", "line", "unsupported"))
+        assert_that(is.flag(other_args$excludeMissingDates))
+    }
+    
+    if ("photoTreatment" %in% names(other_args))
+    {
+        # TODO
+    }
+    
     # TODO: sourceKey 
     # TODO: sourceClass
     # TODO: photoTreatment - https://developer.numerousapp.com/api#metric-api-tips-tricks-photo-treatment
-    # TODO: graphingOptions - https://developer.numerousapp.com/api#metric-api-tips-tricks-graphing-options
     
     response <- numerous_POST(path="metrics", body=other_args)
     rval <- content(response)
